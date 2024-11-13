@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { MapPin, Calendar, Clock, Menu } from 'lucide-react'
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetClose } from "@/components/ui/sheet"
 
 const SectionTitle = ({ children }) => (
   <h2 className="text-3xl font-bold mb-8 text-center">{children}</h2>
@@ -26,8 +26,11 @@ const IconText = ({ Icon, children }) => (
 
 export default function TourismLandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const handleLinkClick = () => {
+    setIsOpen(false)
+  }
 
-  const navLinks = ['Rutas', 'Mapas', 'Galería', 'Tours']
+  const navLinks = ['Rutas', 'Mapas', 'Galeria', 'Tours']
   const routes = [
     { title: 'Ruta de Montaña', description: 'Explora hermosos senderos y disfruta de vistas panorámicas impresionantes.', difficulty: 'Moderada' },
     { title: 'Ruta Costera', description: 'Recorre hermosas playas y descubre encantadores pueblos costeros.', difficulty: 'Fácil' }

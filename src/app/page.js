@@ -6,6 +6,9 @@ import Link from 'next/link'
 import { MapPin, Calendar, Clock, Menu } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetClose } from "@/components/ui/sheet"
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import AboutUsSection from "@/components/sections/About"
 
 const SectionTitle = ({ children }) => (
   <h2 className="text-3xl font-bold mb-8 text-center">{children}</h2>
@@ -26,6 +29,7 @@ const IconText = ({ Icon, children }) => (
 
 export default function TourismLandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [activeTab, setActiveTab] = useState('montana')
   const handleLinkClick = () => {
     setIsOpen(false)
   }
@@ -36,14 +40,14 @@ export default function TourismLandingPage() {
     { title: 'Ruta Costera', description: 'Recorre hermosas playas y descubre encantadores pueblos costeros.', difficulty: 'Fácil' }
   ]
   const galleryImages = [
-    { src: '/img/cementerio.png', alt: 'Playa paradisíaca' },
-    { src: '/img/hotel-ibis.png', alt: 'Montañas nevadas' },
-    { src: '/img/Muelle-Prat.png', alt: 'Bosque tropical' },
-    { src: '/img/Muelle-vergara.png', alt: 'Ciudad histórica' },
-    { src: '/img/Palacio-Rioja.png', alt: 'Cascada espectacular' },
-    { src: '/img/Quinta-vergara.png', alt: 'Desierto al atardecer' },
-    { src: '/img/Reloj-de-flores.png', alt: 'Lago tranquilo' },
-    { src: '/img/Viñedo-kingston.png', alt: 'Paisaje urbano' }
+    { src: '/img/cementerio.png', alt: 'Cementerio' },
+    { src: '/img/hotel-ibis.png', alt: 'Hotel Ibis' },
+    { src: '/img/Muelle-Prat.png', alt: 'Muelle Prat' },
+    { src: '/img/Muelle-vergara.png', alt: 'Muelle Vergara' },
+    { src: '/img/Palacio-Rioja.png', alt: 'Palacio Rioja' },
+    { src: '/img/Quinta-vergara.png', alt: 'Quinta Vergara' },
+    { src: '/img/Reloj-de-flores.png', alt: 'Reloj de Flores' },
+    { src: '/img/Viñedo-kingston.png', alt: 'Viñedo Kingston' }
   ]
   const tours = [
     { title: 'Tour de Montaña', description: 'Disfruta de un emocionante recorrido por las montañas más hermosas de la región.', duration: '3 días', departure: '8:00 AM' },
@@ -120,60 +124,70 @@ export default function TourismLandingPage() {
           <SectionTitle>Mapas de Rutas</SectionTitle>
           <div>
           <p className="mt-4 text-center">Mapa de Ruta de Montaña</p>
-          <div key="montana" className="p-4 rounded-lg flex flex-wrap gap-4 justify-center ">
+          <div key="montana" className="p-4 rounded-lg flex flex-wrap gap-8 justify-center  ">
             <Image
               src="/img/mapa-01.png"
               alt="Mapa de Ruta de Montaña"
-              width={450}  // Tamaño reducido
-              height={200} // Tamaño reducido
-              className="rounded"
+              width={600}  // Tamaño reducido
+              height={300} // Tamaño reducido
+              className="rounded shadow"
             />
             <Image
               src="/img/mapa-02.png"
               alt="Mapa de Ruta de Montaña"
-              width={450}  // Tamaño reducido
-              height={200} // Tamaño reducido
-              className="rounded"
+              width={600}  // Tamaño reducido
+              height={300} // Tamaño reducido
+              className="rounded shadow"
             />
           </div>
           <p className="mt-4 text-center">Mapa de Ruta Costera</p>
-            <div key="costera" className="p-4 rounded-lg flex flex-wrap gap-4 justify-center">
+            <div key="costera" className="p-4 rounded-lg flex flex-wrap gap-8 justify-center ">
               <Image
                 src="/img/mapa-03.png"
                 alt="Mapa de Ruta Costera"
-                width={450}  // Tamaño reducido
-                height={200} // Tamaño reducido
-                className="rounded"
+                width={600}  // Tamaño reducido
+                height={300} // Tamaño reducido
+                className="rounded shadow"
               />
               <Image
                 src="/img/mapa-04.png"
                 alt="Mapa de Ruta Costera"
-                width={450}  // Tamaño reducido
-                height={200} // Tamaño reducido
-                className="rounded"
+                width={600}  // Tamaño reducido
+                height={300} // Tamaño reducido
+                className="rounded shadow"
               />
             </div>
           </div>
         </div>
       </section>
 
+      <AboutUsSection />
+
       <section id="galeria" className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <SectionTitle>Galería de Imágenes</SectionTitle>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {galleryImages.map((img, index) => (
+      <div className="container mx-auto px-4">
+        <SectionTitle>Galería de Imágenes</SectionTitle>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {galleryImages.map((img, index) => (
+            <div key={index} className="relative overflow-hidden group">
               <Image
-                key={index}
                 src={img.src}
                 alt={img.alt}
                 width={600}
                 height={450}
-                className="object-cover h-96 w-full rounded"
+                className="object-cover h-96 w-full rounded transition-transform duration-300 group-hover:scale-110"
               />
-            ))}
-          </div>
+              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <h3 className="text-white text-2xl font-bold text-center px-4 py-2 bg-black bg-opacity-50 rounded-lg shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  {img.alt}
+                </h3>
+              </div>
+            </div>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
+
+
 
       <section id="tours" className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">

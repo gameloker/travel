@@ -36,12 +36,14 @@ export default function TourismLandingPage() {
     { title: 'Ruta Costera', description: 'Recorre hermosas playas y descubre encantadores pueblos costeros.', difficulty: 'Fácil' }
   ]
   const galleryImages = [
-    { src: '/img/hero.avif', alt: 'Playa paradisíaca' },
-    { src: '/img/hero.avif', alt: 'Montañas nevadas' },
-    { src: '/img/hero.avif', alt: 'Bosque tropical' },
-    { src: '/img/hero.avif', alt: 'Ciudad histórica' },
-    { src: '/img/hero.avif', alt: 'Cascada espectacular' },
-    { src: '/img/hero.avif', alt: 'Desierto al atardecer' }
+    { src: '/img/cementerio.png', alt: 'Playa paradisíaca' },
+    { src: '/img/hotel-ibis.png', alt: 'Montañas nevadas' },
+    { src: '/img/Muelle-Prat.png', alt: 'Bosque tropical' },
+    { src: '/img/Muelle-vergara.png', alt: 'Ciudad histórica' },
+    { src: '/img/Palacio-Rioja.png', alt: 'Cascada espectacular' },
+    { src: '/img/Quinta-vergara.png', alt: 'Desierto al atardecer' },
+    { src: '/img/Reloj-de-flores.png', alt: 'Lago tranquilo' },
+    { src: '/img/Viñedo-kingston.png', alt: 'Paisaje urbano' }
   ]
   const tours = [
     { title: 'Tour de Montaña', description: 'Disfruta de un emocionante recorrido por las montañas más hermosas de la región.', duration: '3 días', departure: '8:00 AM' },
@@ -113,29 +115,43 @@ export default function TourismLandingPage() {
         </div>
       </section>
 
-      <section id="mapas" className="py-16 bg-gray-100">
+      <section id="mapas" className="py-16 ">
         <div className="container mx-auto px-4">
           <SectionTitle>Mapas de Rutas</SectionTitle>
           <div>
-            <div key="montana" className="bg-white p-4 rounded-lg shadow">
+          <p className="mt-4 text-center">Mapa de Ruta de Montaña</p>
+          <div key="montana" className="p-4 rounded-lg flex flex-wrap gap-4 justify-center ">
+            <Image
+              src="/img/mapa-01.png"
+              alt="Mapa de Ruta de Montaña"
+              width={450}  // Tamaño reducido
+              height={200} // Tamaño reducido
+              className="rounded"
+            />
+            <Image
+              src="/img/mapa-02.png"
+              alt="Mapa de Ruta de Montaña"
+              width={450}  // Tamaño reducido
+              height={200} // Tamaño reducido
+              className="rounded"
+            />
+          </div>
+          <p className="mt-4 text-center">Mapa de Ruta Costera</p>
+            <div key="costera" className="p-4 rounded-lg flex flex-wrap gap-4 justify-center">
               <Image
-                src="/img/hero3.avif"
-                alt="Mapa de Ruta de Montaña"
-                width={500}
-                height={300}
-                className="w-full h-auto rounded"
-              />
-              <p className="mt-4 text-center">Mapa de Ruta de Montaña</p>
-            </div>
-            <div key="costera" className="bg-white p-4 rounded-lg shadow">
-              <Image
-                src="/img/hero2.avif"
+                src="/img/mapa-03.png"
                 alt="Mapa de Ruta Costera"
-                width={500}
-                height={300}
-                className="w-full h-auto rounded"
+                width={450}  // Tamaño reducido
+                height={200} // Tamaño reducido
+                className="rounded"
               />
-              <p className="mt-4 text-center">Mapa de Ruta Costera</p>
+              <Image
+                src="/img/mapa-04.png"
+                alt="Mapa de Ruta Costera"
+                width={450}  // Tamaño reducido
+                height={200} // Tamaño reducido
+                className="rounded"
+              />
             </div>
           </div>
         </div>
@@ -144,15 +160,15 @@ export default function TourismLandingPage() {
       <section id="galeria" className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <SectionTitle>Galería de Imágenes</SectionTitle>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {galleryImages.map((img, index) => (
               <Image
                 key={index}
                 src={img.src}
                 alt={img.alt}
-                width={400}
-                height={300}
-                className="w-full h-auto rounded"
+                width={600}
+                height={450}
+                className="object-cover h-96 w-full rounded"
               />
             ))}
           </div>

@@ -25,7 +25,7 @@ const NavLink = ({ href, children, onClick }) => (
   <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
     <Link
       href={href}
-      className="text-gray-600 hover:text-blue-600"
+      className="text-gray-400"
       onClick={(e) => {
         e.preventDefault();
         const target = document.querySelector(href);
@@ -109,14 +109,14 @@ export default function TourismLandingPage() {
           <div className="hidden md:flex space-x-4">
             {navLinks.map(link => (
               <NavLink key={link} href={`#${link.toLowerCase()}`}>
-                <span className={isScrolled ? 'text-gray-600' : 'text-white'}>{link}</span>
+                <span className="text-gray-600">{link}</span>
               </NavLink>
             ))}
           </div>
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className={`md:hidden text-gray-600`}>
-                <Menu className="h-6 w-6" />
+                <Menu className="h-12 w-12" />
                 <span className="sr-only">Abrir menú</span>
               </Button>
             </SheetTrigger>
@@ -346,7 +346,7 @@ export default function TourismLandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="mb-4 md:mb-0">
               <h3 className="text-xl font-semibold mb-4">
-                <Image src="/img/logo.png" alt="TravelExplorer" width={120} height={80} />
+                <Image src="/img/logo.png" alt="Empowered" width={120} height={80} />
               </h3>
               <p className="text-sm text-gray-400">Descubre el mundo con nosotros. Aventuras inolvidables te esperan.</p>
             </div>
@@ -356,7 +356,7 @@ export default function TourismLandingPage() {
                 {['Inicio', 'Rutas', 'Tours', 'Galería'].map((item) => (
                   <li key={item}>
                     <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                      <Link href={`#${item.toLowerCase()}`} className="text-gray-400 hover:text-white transition-colors">
+                      <Link href={`#${item.toLowerCase()}`} className="text-gray-400 transition-colors">
                         {item}
                       </Link>
                     </motion.div>
@@ -366,7 +366,7 @@ export default function TourismLandingPage() {
             </div>
             <div>
               <h4 className="text-lg font-semibold mb-4">Contacto</h4>
-              <p className="text-sm text-gray-400 mb-2">Email: info@travelexplorer.com</p>
+              <p className="text-sm text-gray-400 mb-2">Email: info@Empowered.com</p>
               <p className="text-sm text-gray-400 mb-2">Teléfono: +34 123 456 789</p>
               <p className="text-sm text-gray-400">Dirección: Calle Aventura, 123, Madrid</p>
             </div>
@@ -385,7 +385,7 @@ export default function TourismLandingPage() {
             </div>
           </div>
           <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-            <p className="text-sm text-gray-400">&copy; {new Date().getFullYear()} TravelExplorer. Todos los derechos reservados.</p>
+            <p className="text-sm text-gray-400">&copy; {new Date().getFullYear()} Empowered Tours. Todos los derechos reservados.</p>
             <div className="mt-4 space-x-4">
               {['Términos y Condiciones', 'Política de Privacidad', 'Cookies'].map((text) => (
                 <Link key={text} href="#" className="text-xs text-gray-400 hover:text-white transition-colors">{text}</Link>

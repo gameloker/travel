@@ -40,13 +40,13 @@ export default function TourismLandingPage() {
     { title: 'Ruta Costera', description: 'Recorre hermosas playas y descubre encantadores pueblos costeros.', difficulty: 'Fácil' }
   ]
   const galleryImages = [
-    { src: '/img/cementerio.png', alt: 'Cementerio' },
+    { src: '/img/Cementerio.png', alt: 'Cementerio' },
     { src: '/img/hotel-ibis.png', alt: 'Hotel Ibis' },
     { src: '/img/Muelle-Prat.png', alt: 'Muelle Prat' },
     { src: '/img/Muelle-vergara.png', alt: 'Muelle Vergara' },
     { src: '/img/Palacio-Rioja.png', alt: 'Palacio Rioja' },
     { src: '/img/Quinta-vergara.png', alt: 'Quinta Vergara' },
-    { src: '/img/Reloj-de-flores.png', alt: 'Reloj de Flores' },
+    { src: '/img/reloj-de-flores.png', alt: 'Reloj de Flores' },
     { src: '/img/Viñedo-kingston.png', alt: 'Viñedo Kingston' }
   ]
   const tours = [
@@ -60,7 +60,7 @@ export default function TourismLandingPage() {
     <div className="min-h-screen bg-gray-100">
       <header className="bg-white shadow-sm">
         <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold text-blue-600">TravelExplorer</Link>
+          <Link href="/" className="text-2xl font-bold text-blue-600">Empowered</Link>
           <div className="hidden md:flex space-x-4">
             {navLinks.map(link => (
               <NavLink key={link} href={`#${link.toLowerCase()}`}>{link}</NavLink>

@@ -77,13 +77,15 @@ export default function TourismLandingPage() {
     { src: '/img/Viñedo-kingston.png', alt: 'Viñedo Kingston' }
   ]
   const tours = [
-    { title: 'Tour Ruta A',
+    {
+      title: 'Tour Ruta A',
       description: 'Disfruta de un emocionante recorrido por las montañas más hermosas de la región.',
       duration: '3 días',
       departure: '8:00 AM',
       url: "https://wa.me/56979923272/?text=Hola%2C+estoy+interesado+en+agendar+el+Tour+A.+¿Podrías+darme+más+información%3F"
     },
-    { title: 'Tour Ruta B',
+    {
+      title: 'Tour Ruta B',
       description: 'Explora las playas más hermosas y los pueblos costeros más pintorescos.',
       duration: '5 días',
       departure: '7:00 AM',
@@ -97,14 +99,13 @@ export default function TourismLandingPage() {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 shadow ${
-          isScrolled ? 'bg-white bg-opacity-80 backdrop-blur-md shadow-md' : 'bg-white'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 shadow ${isScrolled ? 'bg-white bg-opacity-80 backdrop-blur-md shadow-md' : 'bg-white'
+          }`}
       >
         <ScrollProgressBar />
         <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
           <Link href="/" className={`text-2xl font-bold text-blue-600`}>
-            <Image src="/img/logo.png" alt="Empowered" width={60} height={40}  />
+            <Image src="/img/logo.png" alt="Empowered" width={60} height={40} />
           </Link>
           <div className="hidden md:flex space-x-4">
             {navLinks.map(link => (
@@ -141,11 +142,12 @@ export default function TourismLandingPage() {
         className="relative h-screen flex items-center justify-center"
       >
         <Image
-          src="/img/hero.avif"
+          src="/img/hero.jpg"
           alt="Paisaje turístico"
           layout="fill"
           objectFit="cover"
-          className="absolute inset-0"
+          className="bg-center bg-cover bg-no-repeat opacity-80 filter brightness-75"
+          quality={100}
         />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -157,7 +159,7 @@ export default function TourismLandingPage() {
           <p className="text-xl mb-8">Explora rutas increíbles y vive experiencias únicas</p>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link href="#tours" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            ¡Ir a ver Tours!
+              ¡Ir a ver Tours!
             </Link>
           </motion.div>
         </motion.div>
